@@ -95,6 +95,39 @@ AI_Python_스터디/
 
 ---
 
+## AI API 연동 및 helper_functions 사용법
+
+### 1. .env 파일에 OpenAI API 키 설정
+프로젝트 루트에 `.env` 파일을 만들고 아래처럼 본인의 OpenAI API 키를 입력하세요:
+
+```
+OPENAI_API_KEY=sk-xxxxxxx
+```
+
+### 2. 공통 LLM 함수 사용법
+`common/helper_functions.py`의 함수를 import하여 쉽게 OpenAI 챗봇을 사용할 수 있습니다.
+
+#### 예시 (어느 Week 폴더에서든 사용 가능)
+```python
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+from common.helper_functions import print_llm_response, get_llm_response
+
+print_llm_response("Hello, world!")
+print(get_llm_response("Tell me a good joke."))
+
+messages = [
+    {"role": "system", "content": "You are a helpful assistant."},
+    {"role": "user", "content": "What's the weather today?"}
+]
+print_llm_response(messages)
+```
+- 문자열만 넣어도 자동으로 챗 메시지로 변환되어 동작합니다.
+- 리스트 형태로 직접 넘겨도 됩니다.
+
+---
+
 ## Appendix (참고)
 
 - 이 구조는 진도, 개인 성장, 실전 프로젝트를 명확히 분리하여 협업과 관리가 쉬움.
