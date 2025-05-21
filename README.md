@@ -15,6 +15,11 @@
    - (pyenv 등으로 설치 권장, 이미 있다면 생략)
 3. **가상환경 생성 및 활성화**
    ```bash
+   # Windows PowerShell
+   python -m venv venv
+   .\venv\Scripts\activate
+
+   # macOS/Linux
    python -m venv venv
    source venv/bin/activate
    ```
@@ -34,13 +39,10 @@
 
 ```
 AI_Python_스터디/
-├─ 0_공통/            # 전체 공지, 로드맵, 참고자료
-│   ├─ 로드맵_240520.pdf
-│   ├─ 주차계획표.xlsx
-│   └─ 참고자료/
-│       └─ OpenAI_API_가이드.md
+├─ common/            # 공통 유틸리티, 헬퍼 함수
+│   └─ helper_functions.py
 │
-├─ 1_주차별학습/       # 주차별 실습, 공통노트, 팀원별 실습파일
+├─ 1_Weekly/         # 주차별 실습, 공통노트, 팀원별 실습파일
 │   ├─ Week01/
 │   │    ├─ 광원_변수실습.py
 │   │    ├─ 준영_변수실습.py
@@ -48,14 +50,14 @@ AI_Python_스터디/
 │   │    ├─ 광원_조건문.py
 │   │    └─ 준영_조건문.py
 │
-├─ 2_개인노트/         # 팀원별 개인 정리, 질문, 느낀점 등
+├─ 2_Peronal_Notes/  # 팀원별 개인 정리, 질문, 느낀점 등
 │   ├─ 광원/
 │   │    ├─ 느낀점.md
 │   │    ├─ 질문모음.md
 │   ├─ 준영/
 │   │    ├─ 아이디어정리.docx
 │
-└─ 3_프로젝트/         # 실전 프로젝트별 폴더
+└─ 3_Projects/       # 실전 프로젝트별 폴더
     ├─ proj_구조설계자동화/
     │    ├─ README.md
     │    ├─ main.py
@@ -67,18 +69,23 @@ AI_Python_스터디/
 
 ## 폴더별 용도
 
-- **0_공통/**: 전체 공지, 로드맵, 참고자료 등 팀원 모두가 참고
-- **1_주차별학습/**: 주차별 실습, 공통노트, 팀원별 실습파일 정리
-- **2_개인노트/**: 팀원별 개인 정리, 질문, 느낀점 등 기록
-- **3_프로젝트/**: 실전 프로젝트별 폴더, 결과물 및 발표자료 관리
+- **common/**: 공통으로 사용되는 유틸리티 함수, 헬퍼 함수 등
+- **1_Weekly/**: 주차별 실습, 공통노트, 팀원별 실습파일 정리
+- **2_Peronal_Notes/**: 팀원별 개인 정리, 질문, 느낀점 등 기록
+- **3_Projects/**: 실전 프로젝트별 폴더, 결과물 및 발표자료 관리
 
 ---
 
 ## 개발 환경 세팅 방법 (팀원 공통)
 
 1. Python 3.11.8 버전 설치 (pyenv 권장)
-2. (선택) 가상환경 생성 및 활성화
+2. 가상환경 생성 및 활성화
    ```bash
+   # Windows PowerShell
+   python -m venv venv
+   .\venv\Scripts\activate
+
+   # macOS/Linux
    python -m venv venv
    source venv/bin/activate
    ```
@@ -90,18 +97,28 @@ AI_Python_스터디/
 
 > 가상환경(venv)은 각자 로컬에서만 생성/사용하며, 깃허브에는 올리지 않습니다.
 
-- 팀원이 늘어나면 `2_개인노트/`에 새 폴더, `1_주차별학습/`의 각 Week 폴더에 새 실습 파일만 추가하면 됩니다.
+- 팀원이 늘어나면 `2_Peronal_Notes/`에 새 폴더, `1_Weekly/`의 각 Week 폴더에 새 실습 파일만 추가하면 됩니다.
 - 각 폴더/파일명은 팀 상황에 맞게 자유롭게 조정하세요.
 
 ---
 
 ## AI API 연동 및 helper_functions 사용법
 
-### 1. .env 파일에 OpenAI API 키 설정
-프로젝트 루트에 `.env` 파일을 만들고 아래처럼 본인의 OpenAI API 키를 입력하세요:
+### 1. OpenAI API 키 설정
 
+#### Windows PowerShell
+```powershell
+# 현재 세션에만 적용
+$env:OPENAI_API_KEY = "your-api-key-here"
+
+# 영구 설정
+setx OPENAI_API_KEY "your-api-key-here"
 ```
-OPENAI_API_KEY=sk-xxxxxxx
+
+#### macOS/Linux
+```bash
+# .env 파일 생성
+echo "OPENAI_API_KEY=your-api-key-here" > .env
 ```
 
 ### 2. 공통 LLM 함수 사용법

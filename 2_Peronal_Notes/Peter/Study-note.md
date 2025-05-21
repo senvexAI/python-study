@@ -3,9 +3,10 @@
 - String
 - Integer
 - Float
-- List
-- Tuple
-- Dictionary
+- List : ["a","b","D"]
+- Dictionary -> {"key1": "value", "key2": "value2"}
+    In case of add or update -> dictionary["new key"]="new value"
+- boolean: ONLY True or False
 - Set
 
 ## Function
