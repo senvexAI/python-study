@@ -1,5 +1,7 @@
 ## Type -> have method
-- F-string
+- F-string : f-string을 사용하려면 문자열 앞에 f를 붙이고, 중괄호 {} 안에 변수를 넣습니다. 
+print(f"blahbal{variable1}")
+
 - String
 - Integer
 - Float
@@ -46,6 +48,12 @@ for i in range(5):
 while 조건:
     ...
 ```
+
+## 파이썬 파일 불러오기에서 default working directory는?
+
+By default, Python looks for files in the current working directory, which is the folder from where you run your Python script. You can check this directory using the os.getcwd() function from the os module.
+
+
 
 ## 함수 정의
 ```python

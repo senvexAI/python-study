@@ -13,3 +13,19 @@ food_preferences_tommy = {
 food_preferences_tommy["is_vegetarian"] = True
 
 print(food_preferences_tommy)
+
+# %% section 2
+
+print(True)
+print(False)
+
+print("True")
+print("true")
+
+
+print(type(True))
+print(type(False))
+
+
+
+# %%

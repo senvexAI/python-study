@@ -1,0 +1,9 @@
+# 업무 메모 - 2025-05-23
+
+1. OpenAI API 연동 완료
+2. Cursor AI 단축키 확인: Ctrl + /
+3. 다음 작업: GPT 기능 테스트 스크립트 작성
+4. 공유 대상자: Peter, Jina, Roy
+
+- 참고 링크:
+  https://platform.openai.com/
