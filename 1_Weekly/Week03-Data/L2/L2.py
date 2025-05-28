@@ -1,7 +1,10 @@
 # %% section 1
 from helper_functions import upload_txt_file, list_files_in_directory, print_llm_response
+
 import os
-# script_dir = os.path.dirname(os.path.abspath(__file__))
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
+
 list_files_in_directory()
 
 # %% section 2
@@ -53,3 +56,4 @@ Recipe:
 {recipe}"""
 
 print_llm_response(prompt)
+# %%
